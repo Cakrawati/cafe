@@ -1,0 +1,59 @@
+<?php
+// Notifikasi Error
+echo validation_errors('<div class="alert alert-warning">','</div>');
+
+// Form open
+echo form_open(base_url('admin/produk/edit/' .$produk->id_produk),' class="form-horizontal"');
+?>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Nama Pengguna</label>
+    <div class="col-md-5">
+      <input type="text" name="nama" class="form-control" placeholder="Nama pengguna" value="<?php echo $produk->nama ?>" required>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Email</label>
+    <div class="col-md-5">
+      <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $produk->email ?>" required>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Produkname</label>
+    <div class="col-md-5">
+      <input type="text" name="produkname" class="form-control" placeholder="Produkname" value="<?php echo $produk->produkname ?>" required>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Password</label>
+    <div class="col-md-5">
+      <input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo $produk->password ?>" required>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Level Hak Akses</label>
+    <div class="col-md-5">
+      <select name="akses_level" class="form-control">
+        <option value="Admin">Admin</option>
+        <option value="Produk">Produk</option>
+      </select>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label"></label>
+    <div class="col-md-5">
+      <button class="btn btn-success btn-lg" name="submit" type="submit">
+      	<i class="fa fa-save"></i> Simpan
+      </button>
+      <button class="btn btn-info btn-lg" name="reset" type="reset">
+      	<i class="fa fa-times"></i> Reset
+      </button>
+    </div>
+</div>
+
+<?php echo form_close(); ?>
