@@ -1,4 +1,12 @@
 <?php
+
+// Error upload
+if(isset($error)){
+  echo '<p class="alert alert-warning">';
+  echo $error;
+  echo '</p>';
+}
+
 // Notifikasi Error
 echo validation_errors('<div class="alert alert-warning">','</div>');
 
@@ -57,7 +65,7 @@ echo form_open_multipart(base_url('admin/produk/tambah'),' class="form-horizonta
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Keterangan Produk</label>
     <div class="col-md-10">
-      <textarea name="keterangan" class="form-control" placeholder="Keterangan"><?php echo set_value('keterangan')?></textarea>
+      <textarea name="keterangan" class="form-control" placeholder="Keterangan" id="editor"><?php echo set_value('keterangan')?></textarea>
     </div>
 </div>
 

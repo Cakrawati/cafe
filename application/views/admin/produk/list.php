@@ -30,16 +30,19 @@ if ($this->session->flashdata('sukses')) {
 		<tr>
 			<td><?php echo $no++ ?></td>
 			<td>
-				<img src="<?php echo base_url('assets/upload/image/thumbs/' .$produk->gambar) ?>" class="img img-responsive img-thumbnail" width="60" >
+				<img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk->gambar) ?>" class="img img-responsive img-thumbnail" width="60" >
 			</td>
 			<td><?php echo $produk->nama_produk ?></td>
 			<td><?php echo $produk->nama_kategori ?></td>
 			<td><?php echo number_format($produk->harga,'0',',','.') ?></td>
 			<td><?php echo $produk->status_produk ?></td>
 			<td>
+				<!-- <a href="<?php echo base_url('admin/produk/gambar/' .$produk->id_produk) ?>" class="btn btn-success btn_xs"><i class="fa fa-image"></i> Gambar (<?php echo $produk->total_gambar ?>)</a>
+ -->
 				<a href="<?php echo base_url('admin/produk/edit/' .$produk->id_produk) ?>" class="btn btn-warning btn_xs"><i class="fa fa-edit"></i> Edit </a>
 				
-				<a href="<?php echo base_url('admin/produk/delete/' .$produk->id_produk) ?>" class="btn btn-danger btn_xs" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fa fa-trash-o"></i> Hapus </a>
+				
+				<?php include('delete.php') ?>
 			</td>
 		</tr>
 		<?php } ?>

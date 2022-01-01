@@ -1,3 +1,8 @@
+<!-- ckeditor -->
+<script>
+  initSample();
+</script>
+
 </div>
               <!-- /.card-body -->
             </div>

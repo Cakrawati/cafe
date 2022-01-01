@@ -1,19 +1,75 @@
+<?php
+// Loading konfigurasi website
+$site  = $this->konfigurasi_model->listing();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/jpg" href="<?php echo base_url() ?>assets/template/images/icon.jpg">
-    <link rel="stylesheet" href="https://meyerweb.com/eric/tools/css/reset/reset.css">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/template/css/layout.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500|Poppins:500" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/template/css/style.css">
     <title><?php echo $title ?></title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+    <!-- ICON DIAMBIL DARI KONFIGURASI WEBSITE -->
+    <link rel="icon" type="image/jpg" href="<?php echo base_url('assets/upload/image/thumbs/'.$site->icon) ?>">
+    <!-- SEO Google -->
+    <meta name="keyword" content="<?php echo $site->keywords ?>">
+    <meta name="description" content="<?php echo $title ?>, <?php echo $site->deskripsi ?>">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/fonts/themify/themify-icons.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/fonts/elegant-font/html-css/style.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/animate/animate.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/slick/slick.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/lightbox2/css/lightbox.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/css/util.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/css/main.css">
+<!--===============================================================================================-->
 
-<body>
+<style type="text/css" media="screen">
+    ul.pagination {
+        padding: 0 10px;
+        background-color: gray;
+        border-radius: 10px;
+        text-align: center !important;
+    }
+    .pagination a, .pagination b {
+        padding: 10px 20px;
+        background-color: gray;
+        color: white;
+        text-decoration: none;
+        float: left; 
+    }
+    .pagination a {
+        background-color: gray;
+        color: white;
+    }
+    .pagination b {
+        background-color: black;
+        color: white;
+    }
+    .pagination a:hover {
+        background-color: black;
+    }
+</style>
+</head>
+<body class="animsition">
+

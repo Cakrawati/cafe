@@ -34,6 +34,7 @@
                   <p>DASHBOARD</p>
                 </a>
           </li>
+
           <!-- Menu Produk -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -64,6 +65,32 @@
               </li>
             </ul>
           </li>
+
+          <!-- Menu Produk -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tags"></i>
+              <p>
+                MERCHANDISE
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/merchandise') ?>" class="nav-link">
+                  <i class="fa fa-table nav-icon"></i>
+                  <p> Data Merchandise </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/merchandise/tambah') ?>" class="nav-link">
+                  <i class="fa fa-plus nav-icon"></i>
+                  <p> Tambah Merchandise </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <!-- Menu Pengguna -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -88,6 +115,38 @@
               </li>
             </ul>
           </li>
+
+          <!-- Menu konigurasi -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-wrench"></i>
+              <p>
+                KONFIGURASI
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/konfigurasi') ?>" class="nav-link">
+                  <i class="fa fa-home nav-icon"></i>
+                  <p> Konfigurasi Umum </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/konfigurasi/logo') ?>" class="nav-link">
+                  <i class="fa fa-image nav-icon"></i>
+                  <p> Konfigurasi Logo </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('admin/konfigurasi/icon') ?>" class="nav-link">
+                  <i class="fa fa-home nav-icon"></i>
+                  <p> Konfigurasi Icon </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

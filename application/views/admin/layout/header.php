@@ -84,10 +84,9 @@
           <li class="user-footer">
             <div class="pull-left">
               <a href="#" class="btn btn-default btn-flat">Profile</a>
+              <a href="<?php echo base_url('login/logout') ?>" class="btn btn-default btn-flat" style="margin-left: 37%;">Sign Out</a>
             </div>
-            <div class="pull-right">
-              <a href="<?php echo base_url('login/logout') ?>" class="btn btn-default btn-flat">Sign Out</a>
-            </div>
+
           </li>
         </ul>
       </li>
