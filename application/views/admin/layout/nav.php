@@ -91,6 +91,14 @@
             </ul>
           </li>
 
+           <!-- Menu Dashoard -->
+          <li class="nav-item">
+                <a href="<?php echo base_url('admin/rekening') ?>" class="nav-link">
+                  <i class="nav-icon fa fa-dollar-sign text-info"></i>
+                  <p>DATA REKENING</p>
+                </a>
+          </li>
+
           <!-- Menu Pengguna -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

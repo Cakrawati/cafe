@@ -83,15 +83,53 @@
 		</tr>
 	</table>
 	<br>
-	<p class="pull-right">
-		<a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-danger btn-lg">
-			<i class="fa fa-trash-o"></i> Delete All
-		</a>
-		<a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-success btn-lg">
-			<i class="fa fa-shopping-cart"></i> Check Out
-		</a>
-	</p>
-	</div>
+	<?php 
+	echo form_open(base_url('belanja/checkout')); 
+	$kode_transaksi = date('dmY').strtoupper(random_string('alnum',8));
+	?>
+	<input type="hidden" name="id_pelanggan" value="<?php echo $pelanggan->id_pelanggan; ?>">
+	<input type="hidden" name="jumlah_transaksi" value="<?php echo $this->cart->total() ?>">
+	<input type="hidden" name="tanggal_transaksi" value="<?php echo date('Y-m-d'); ?>">
+	
+	<table class="table">
+			<thead>
+				<tr>
+					<th width="25%">Kode Transaksi</th>
+					<th><input type="text" name="kode_transaksi" class="form-control" value="<?php echo $kode_transaksi ?>" readonly required></th>
+				</tr>
+				<tr>
+					<th width="25%">Nama Penerima</th>
+					<th><input type="text" name="nama_pelanggan" class="form-control" placeholder="Nama Lengkap" value="<?php echo $pelanggan->nama_pelanggan ?>" required></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Email Penerima</td>
+					<td><input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $pelanggan->email ?>" required></td>
+				</tr>
+				<tr>
+					<td>Telepon Penerima</td>
+					<td><input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $pelanggan->telepon ?>" required></td>
+				</tr>
+				<tr>
+					<td>Alamat Penerima</td>
+					<td><textarea name="alamat" class="form-control" placeholder="Alamatt"><?php echo $pelanggan->alamat ?></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button class="btn btn-success btn-lg" type="submit">
+							<i class="fa fa-save"></i> Check Out
+						</button>
+						<button class="btn btn-default btn-lg" type="reset">
+							<i class="fa fa-times"></i> Reset
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	<?php echo form_close(); ?>
 </div>
 </div>
 
