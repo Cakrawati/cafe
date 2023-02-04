@@ -79,7 +79,7 @@ echo form_open_multipart(base_url('admin/produk/edit/' .$produk->id_produk),' cl
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Upload Gambar Produk</label>
     <div class="col-md-5">
-      <input type="file" name="gambar" class="form-control">
+      <input type="file" name="gambar" class="form-control" style="width: 200px; height: 150px;">
     </div>
 </div>
 

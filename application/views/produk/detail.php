@@ -28,6 +28,19 @@
 						<img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
 					</div>
 				</div>
+				<?php 
+					if ($gambar) {
+						foreach ($gambar as $gambar) {
+					?>
+					<div class="item-click" data-thumb="<?php echo base_url('assets/upload/image/thumbs/'.$gambar->gambar) ?>">
+						<div class="wrap-pic-w">
+							<img src="<?php echo base_url('assets/upload/image/thumbs/'.$gambar->gambar) ?>" alt="<?php echo $gambar->judul_gambar ?>">
+						</div>
+					</div>
+					<?php 
+						}
+					} 
+					?>
 			</div>
 		</div>
 	</div>
@@ -122,7 +135,7 @@
 
 			    <!-- Block2 -->
 			    <div class="block2">
-			        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+			        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="height: 270px !important; width: 270px !important;">
 			            <img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
 
 			            <div class="block2-overlay trans-0-4">

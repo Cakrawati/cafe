@@ -26,78 +26,78 @@ class Produk extends CI_Controller {
 	}
 
 	// Gambar
-	// public function gambar($id_produk)
-	// {
-	// 	$produk 	= $this->produk_model->detail($id_produk);
-	// 	$gambar 	= $this->produk_model->gambar($id_produk);	
+	public function gambar($id_produk)
+	{
+		$produk 	= $this->produk_model->detail($id_produk);
+		$gambar 	= $this->produk_model->gambar($id_produk);	
 
-	// 	// Validasi input
-	// 	$valid = $this->form_validation;
+		// Validasi input
+		$valid = $this->form_validation;
 
-	// 	$valid->set_rules('judul_gambar','Judul/Nama Gambar','required',
-	// 		array(	'required'		=> '%s harus diisi'));
+		$valid->set_rules('judul_gambar','Judul/Nama Gambar','required',
+			array(	'required'		=> '%s harus diisi'));
 
-	// 	if($valid->run())
-	// 	{
-	// 		$config['upload_path'] 		= './assets/upload/image/thumbs/';
-	// 		$config['allowed_types'] 	= 'gif|jpg|png|jpeg';
-	// 		$config['max_size']  		= '2400'; //Dalam KB
-	// 		$config['max_width']  		= '2024';
-	// 		$config['max_height']  		= '2024';
+		if($valid->run())
+		{
+			$config['upload_path'] 		= './assets/upload/image/thumbs/';
+			$config['allowed_types'] 	= 'gif|jpg|png|jpeg';
+			$config['max_size']  		= '2400'; //Dalam KB
+			$config['max_width']  		= '2024';
+			$config['max_height']  		= '2024';
 			
-	// 		$this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 			
-	// 		if ( ! $this->upload->do_upload('gambar')){
+			if ( ! $this->upload->do_upload('gambar')){
 				
 				
 				
-	// 	//End validasi
+		//End validasi
 
-	// 	$data = array(	'title'		=> 'Tambah Gambar '.$produk->nama_produk,
-	// 					'produk'	=> $produk,
-	// 					'gambar'	=> $gambar,
-	// 					'error'		=> $this->upload->display_errors(),
-	// 					'isi'		=> 'admin/produk/gambar'
-	// 				);
-	// 	$this->load->view('admin/layout/wrapper', $data, FALSE);
-	// 	// Masuk database
-	// 	}else{
-	// 		$upload_gambar = array('upload_data' => $this->upload->data());
+		$data = array(	'title'		=> 'Tambah Gambar '.$produk->nama_produk,
+						'produk'	=> $produk,
+						'gambar'	=> $gambar,
+						'error'		=> $this->upload->display_errors(),
+						'isi'		=> 'admin/produk/gambar'
+					);
+		$this->load->view('admin/layout/wrapper', $data, FALSE);
+		// Masuk database
+		}else{
+			$upload_gambar = array('upload_data' => $this->upload->data());
 
-	// 		// create thumnail gambar
-	// 		$config['image_library'] 	= 'gd2';
-	// 		$config['source_image'] 	= './assets/upload/image/'.$upload_gambar['upload_data']['file_name'];
-	// 		//lokasi folder thumbnail
-	// 		$config['new_image']		= './assets/upload/image/thumbs/';
-	// 		$config['create_thumb'] 	= TRUE;
-	// 		$config['maintain_ratio'] 	= TRUE;
-	// 		$config['width']         	= 250; //pixel
-	// 		$config['height']       	= 250; //pixel
-	// 		$config['thumb_maker']		= '';
+			// create thumnail gambar
+			$config['image_library'] 	= 'gd2';
+			$config['source_image'] 	= './assets/upload/image/'.$upload_gambar['upload_data']['file_name'];
+			//lokasi folder thumbnail
+			$config['new_image']		= './assets/upload/image/thumbs/';
+			$config['create_thumb'] 	= TRUE;
+			$config['maintain_ratio'] 	= TRUE;
+			$config['width']         	= 250; //pixel
+			$config['height']       	= 250; //pixel
+			$config['thumb_maker']		= '';
 
-	// 		$this->load->library('image_lib', $config);
+			$this->load->library('image_lib', $config);
 
-	// 		$this->image_lib->resize();
-	// 		// end create tumbnail
+			$this->image_lib->resize();
+			// end create tumbnail
 
-	// 		$i = $this->input->post();
-	// 		$data = array(	'id_produk'			=> $id_produk,
-	// 						'judul_gambar'		=> $i['judul_gambar'],
-	// 						//Disimpan nama file gambar
-	// 						'gambar'			=> $upload_gambar['upload_data']['file_name'],
-	// 						);
-	// 		$this->produk_model->tambah_gambar($data);
-	// 		$this->session->set_flashdata('sukses', 'Data gambar telah ditambah');
-	// 		redirect(base_url('admin/produk/gambar/'.$id_produk),'refresh');
-	// 	}}
-	// 	// End masuk database
-	// 	$data = array(	'title'		=> 'Tambah Gambar '.$produk->nama_produk,
-	// 					'produk'	=> $produk,
-	// 					'gambar'	=> $gambar,
-	// 					'isi'		=> 'admin/produk/gambar'
-	// 				);
-	// 	$this->load->view('admin/layout/wrapper', $data, FALSE);
-	// }
+			$i = $this->input->post();
+			$data = array(	'id_produk'			=> $id_produk,
+							'judul_gambar'		=> $i['judul_gambar'],
+							//Disimpan nama file gambar
+							'gambar'			=> $upload_gambar['upload_data']['file_name'],
+							);
+			$this->produk_model->tambah_gambar($data);
+			$this->session->set_flashdata('sukses', 'Data gambar telah ditambah');
+			redirect(base_url('admin/produk/gambar/'.$id_produk),'refresh');
+		}}
+		// End masuk database
+		$data = array(	'title'		=> 'Tambah Gambar '.$produk->nama_produk,
+						'produk'	=> $produk,
+						'gambar'	=> $gambar,
+						'isi'		=> 'admin/produk/gambar'
+					);
+		$this->load->view('admin/layout/wrapper', $data, FALSE);
+	}
 
 	// Tambah Produk
 	public function tambah()
@@ -288,7 +288,7 @@ class Produk extends CI_Controller {
 							'harga'				=> $i['harga'],
 							'stok_produk'		=> $i['stok_produk'],
 							// Disimpan nama file gambar (Gambar tidak diganti)
-							//'gambar'			=> $upload_gambar['upload_data']['file_name'],
+							// 'gambar'			=> $upload_gambar['upload_data']['file_name'],
 							'ukuran'			=> $i['ukuran'],
 							'status_produk'		=> $i['status_produk']
 							);
@@ -315,24 +315,24 @@ class Produk extends CI_Controller {
 		//End Proses hapus
 		$data = array('id_produk' => $id_produk);
 		$this->produk_model->delete($data);
-		//$this->produk_model->deletegambarproduk($id_produk);
+		$this->produk_model->deletegambarproduk($id_produk);
 		$this->session->set_flashdata('sukses', 'Data telah dihapus');
 		redirect(base_url('admin/produk'),'refresh');
 	}
 
 	// Delete gambar produk
-	// public function delete_gambar($id_produk,$id_gambar)
-	// {
-	// 	// Proses hapus gambar
-	// 	$produk = $this->produk_model->detail_gambar($id_gambar);
-	// 	unlink('./assets/upload/image/'.$gambar->gambar);
-	// 	unlink('./assets/upload/image/thumbs/'.$gambar->gambar);
-	// 	//End Proses hapus
-	// 	$data = array('id_gambar' => $id_gambar);
-	// 	$this->produk_model->delete_gambar($data);
-	// 	$this->session->set_flashdata('sukses', 'Data gambar telah dihapus');
-	// 	redirect(base_url('admin/produk/gambar/'.$id_produk),'refresh');
-	// }
+	public function delete_gambar($id_produk,$id_gambar)
+	{
+		// Proses hapus gambar
+		$produk = $this->produk_model->detail_gambar($id_gambar);
+		unlink('./assets/upload/image/'.$gambar->gambar);
+		unlink('./assets/upload/image/thumbs/'.$gambar->gambar);
+		//End Proses hapus
+		$data = array('id_gambar' => $id_gambar);
+		$this->produk_model->delete_gambar($data);
+		$this->session->set_flashdata('sukses', 'Data gambar telah dihapus');
+		redirect(base_url('admin/produk/gambar/'.$id_produk),'refresh');
+	}
 
 
 }

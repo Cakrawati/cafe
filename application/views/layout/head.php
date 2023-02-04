@@ -13,7 +13,7 @@ $site  = $this->konfigurasi_model->listing();
     <!-- ICON DIAMBIL DARI KONFIGURASI WEBSITE -->
     <link rel="icon" type="image/jpg" href="<?php echo base_url('assets/upload/image/thumbs/'.$site->icon) ?>">
     <!-- SEO Google -->
-    <meta name="keyword" content="<?php echo $site->keywords ?>">
+    <!-- <meta name="keyword" content="<?php echo $site->keywords ?>"> -->
     <meta name="description" content="<?php echo $title ?>, <?php echo $site->deskripsi ?>">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/template/vendor/bootstrap/css/bootstrap.min.css">
@@ -70,6 +70,7 @@ $site  = $this->konfigurasi_model->listing();
         background-color: black;
     }
 </style>
+
 </head>
 <body class="animsition">
 

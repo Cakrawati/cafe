@@ -20,7 +20,6 @@ class Home extends CI_Controller {
 		$produk 	= $this->produk_model->home();
 
 		$data = array(	'title' 	=> $site->namaweb.' | '.$site->tagline,
-						'keywords'	=> $site->keywords,
 						'deskripsi'	=> $site->deskripsi,
 						'site'		=> $site,
 						'kategori'	=> $kategori,

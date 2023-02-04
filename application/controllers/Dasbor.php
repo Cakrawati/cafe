@@ -12,14 +12,14 @@ class Dasbor extends CI_Controller {
 		$this->load->model('transaksi_model');
 		$this->load->model('rekening_model');
 		// halaman ini diproteksi dengan Simple_pelanggan => check login
-		$this->simple_pelanggan->cek_login();
+		// $this->simple_pelanggan->cek_login();
 	}
 
 	// Halaman Dasbor
 	public function index()
 	{
 		// Ambil data login id_pelanggan dari sistem
-		$id_pelanggan 		= $this->session->userdata('id_pelanggan');
+		// $id_pelanggan 		= $this->session->userdata('id_pelanggan');
 		$header_transaksi 	= $this->header_transaksi_model->pelanggan($id_pelanggan);
 
 		$data = array(	'title' 			=> 'Halaman Dasboard Pelanggan',
@@ -33,7 +33,7 @@ class Dasbor extends CI_Controller {
 	public function belanja()
 	{
 		// Ambil data login id_pelanggan dari sistem
-		$id_pelanggan 		= $this->session->userdata('id_pelanggan');
+		// $id_pelanggan 		= $this->session->userdata('id_pelanggan');
 		$header_transaksi 	= $this->header_transaksi_model->pelanggan($id_pelanggan);
 
 		$data = array(	'title' 			=> 'Riwayat Belanja',
@@ -69,7 +69,7 @@ class Dasbor extends CI_Controller {
 	public function profil()
 	{
 		// Ambil data login id_pelanggan dari sistem
-		$id_pelanggan 		= $this->session->userdata('id_pelanggan');
+		// $id_pelanggan 		= $this->session->userdata('id_pelanggan');
 		$pelanggan 			= $this->pelanggan_model->detail($id_pelanggan);
 
 		// Validasi input

@@ -68,7 +68,7 @@ echo form_open_multipart(base_url('admin/konfigurasi'),' class="form-horizontal"
 <div class="form-group row">
     <label class="col-sm-3 col-form-label">Telepon/HP</label>
     <div class="col-md-5">
-      <input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $konfigurasi->telepon ?>" required>
+      <input type="url" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $konfigurasi->telepon ?>" required>
     </div>
 </div>
 
@@ -80,30 +80,9 @@ echo form_open_multipart(base_url('admin/konfigurasi'),' class="form-horizontal"
 </div>
 
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Keyword (untuk SEO Google)</label>
-    <div class="col-md-9">
-      <textarea name="keywords" class="form-control" placeholder="Keyword (untuk SEO Google)"><?php echo $konfigurasi->keywords ?></textarea>
-    </div>
-</div>
-
-<div class="form-group row">
-    <label class="col-sm-3 col-form-label">Kode Metatext</label>
-    <div class="col-md-9">
-      <textarea name="metatext" class="form-control" placeholder="Metatext"><?php echo $konfigurasi->metatext ?></textarea>
-    </div>
-</div>
-
-<div class="form-group row">
     <label class="col-sm-3 col-form-label">Deskripsi website</label>
     <div class="col-md-9">
       <textarea name="deskripsi" class="form-control" placeholder="Deskripsi Website"><?php echo $konfigurasi->deskripsi ?></textarea>
-    </div>
-</div>
-
-<div class="form-group row">
-    <label class="col-sm-3 col-form-label">Rekening Pembayaran</label>
-    <div class="col-md-9">
-      <textarea name="rekening_pembayaran" class="form-control" placeholder="Rekening Pembayaran"><?php echo $konfigurasi->rekening_pembayaran ?></textarea>
     </div>
 </div>
 

@@ -69,17 +69,18 @@ echo form_open_multipart(base_url('admin/produk/tambah'),' class="form-horizonta
     </div>
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label">Keyword (untuk SEO Google)</label>
     <div class="col-md-10">
       <textarea name="keywords" class="form-control" placeholder="Keyword (untuk SEO Google)"><?php echo set_value('keywords')?></textarea>
     </div>
-</div>
+</div> -->
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Upload Gambar Produk</label>
     <div class="col-md-5">
-      <input type="file" name="gambar" class="form-control" required="required">
+      <input type="file" name="gambar" class="form-control" required="required" style="width: 200px; height: 150px;">
+      
     </div>
 </div>
 

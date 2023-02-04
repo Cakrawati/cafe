@@ -84,10 +84,10 @@
 	</table>
 	<br>
 	<p class="pull-right">
-		<a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-danger btn-lg">
+		<a href="<?php echo base_url('belanja/delete') ?>" class="btn btn-danger btn-lg">
 			<i class="fa fa-trash-o"></i> Delete All
 		</a>
-		<a href="<?php echo base_url('belanja/hapus') ?>" class="btn btn-success btn-lg">
+		<a href="<?php echo base_url('belanja/checkout') ?>" class="btn btn-success btn-lg">
 			<i class="fa fa-shopping-cart"></i> Check Out
 		</a>
 	</p>

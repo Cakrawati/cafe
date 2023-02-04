@@ -37,9 +37,13 @@ echo form_open(base_url('admin/user/tambah'),' class="form-horizontal"');
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Level Hak Akses</label>
     <div class="col-md-5">
-      <select name="akses_level" class="form-control">
-      	<option value="Admin">Admin</option>
-      	<option value="User">User</option>
+      <select name="akses_level" class="form-control" required>
+        <option value="">-- Pilih Role --</option>
+        <?php 
+          foreach($akses_level as $key => $value) {
+            ?> <option value="<?php echo $value->level_id?>"> <?php echo $value->nama ?></option><?php
+          }
+        ?>
       </select>
     </div>
 </div>

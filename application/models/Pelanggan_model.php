@@ -31,29 +31,29 @@ class Pelanggan_model extends CI_Model {
 	}
 
 	// Login pelanggan
-	public function login($email,$password)
-	{
-		$this->db->select('*');
-		$this->db->from('pelanggan');
-		$this->db->where(array( 'email'		=> $email,
-								'password'	=> md5($password)));
-		$this->db->order_by('id_pelanggan', 'desc');
-		$query = $this->db->get();
-		return $query->row();
-	}
+	// public function login($email,$password)
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('pelanggan');
+	// 	$this->db->where(array( 'email'		=> $email,
+	// 							'password'	=> md5($password)));
+	// 	$this->db->order_by('id_pelanggan', 'desc');
+	// 	$query = $this->db->get();
+	// 	return $query->row();
+	// }
 
 	// Sudah login
-	public function sudah_login($email,$nama_pelanggan)
-	{
-		$this->db->select('*');
-		$this->db->from('pelanggan');
-		$this->db->where(array( 'email'			=> $email,
-								'nama_pelanggan'=> $nama_pelanggan
-								));
-		$this->db->order_by('id_pelanggan', 'desc');
-		$query = $this->db->get();
-		return $query->row();
-	}
+	// public function sudah_login($email,$nama_pelanggan)
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('pelanggan');
+	// 	$this->db->where(array( 'email'			=> $email,
+	// 							'nama_pelanggan'=> $nama_pelanggan
+	// 							));
+	// 	$this->db->order_by('id_pelanggan', 'desc');
+	// 	$query = $this->db->get();
+	// 	return $query->row();
+	// }
 
 	// Tambah
 	public function tambah($data)

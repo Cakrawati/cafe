@@ -39,14 +39,11 @@ class Konfigurasi extends CI_Controller {
 							'tagline'				=> $i['tagline'],
 							'email'					=> $i['email'],
 							'website'				=> $i['website'],
-							'keywords'				=> $i['keywords'],
-							'metatext'				=> $i['metatext'],
 							'telepon'				=> $i['telepon'],
 							'alamat'				=> $i['alamat'],
 							'facebook'				=> $i['facebook'],
 							'instagram'				=> $i['instagram'],
 							'deskripsi'				=> $i['deskripsi'],
-							'rekening_pembayaran'	=> $i['rekening_pembayaran']
 							);
 			$this->konfigurasi_model->edit($data);
 			$this->session->set_flashdata('sukses', 'Data telah diupdate');

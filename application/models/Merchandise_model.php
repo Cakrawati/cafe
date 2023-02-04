@@ -26,6 +26,74 @@ class Merchandise_model extends CI_Model {
 		return $query->result();
 	}
 
+	// home
+	public function home()
+	{
+		$this->db->select('merchandise.*,
+						users.nama,
+						COUNT(gambar.id_gambar) AS total_gambar');
+		$this->db->from('merchandise');
+		//JOIN
+		$this->db->join('users', 'users.id_user = merchandise.id_user', 'left');
+		$this->db->join('gambar', 'gambar.id_merchandise = merchandise.id_merchandise', 'left');
+		//END JOIN
+		$this->db->where('merchandise.status_merchandise','Publish');
+		$this->db->group_by('merchandise.id_merchandise');
+		$this->db->order_by('id_merchandise', 'desc');
+		$this->db->limit(12);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	// read merchandise
+	public function read($slug_merchandise)
+	{
+		$this->db->select('merchandise.*,
+						users.nama,
+						COUNT(gambar.id_gambar) AS total_gambar');
+		$this->db->from('merchandise');
+		//JOIN
+		$this->db->join('users', 'users.id_user = merchandise.id_user', 'left');
+		$this->db->join('gambar', 'gambar.id_merchandise = merchandise.id_merchandise', 'left');
+		//END JOIN
+		$this->db->where('merchandise.status_merchandise','Publish');
+		$this->db->where('merchandise.slug_merchandise', $slug_merchandise);
+		$this->db->group_by('merchandise.id_merchandise');
+		$this->db->order_by('id_merchandise', 'desc');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	// Merchandise
+	public function merchandise($limit,$start)
+	{
+		$this->db->select('merchandise.*,
+						users.nama,
+						COUNT(gambar.id_gambar) AS total_gambar');
+		$this->db->from('merchandise');
+		//JOIN
+		$this->db->join('users', 'users.id_user = merchandise.id_user', 'left');
+		$this->db->join('gambar', 'gambar.id_merchandise = merchandise.id_merchandise', 'left');
+		//END JOIN
+		$this->db->where('merchandise.status_merchandise','Publish');
+		$this->db->group_by('merchandise.id_merchandise');
+		$this->db->order_by('id_merchandise', 'desc');
+		$this->db->limit($limit,$start);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	// Total Merchandise
+	public function total_merchandise()
+	{
+		$this->db->select('COUNT(*) AS total');
+		$this->db->from('merchandise');
+		$this->db->where('status_merchandise', 'Publish');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+
 	// detail all gambar
 	public function detail_gambar($id_gambar)
 	{

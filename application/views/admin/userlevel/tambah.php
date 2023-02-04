@@ -3,27 +3,27 @@
 echo validation_errors('<div class="alert alert-warning">','</div>');
 
 // Form open
-echo form_open(base_url('admin/rekening/tambah'),' class="form-horizontal"');
+echo form_open(base_url('admin/userlevel/tambah'),' class="form-horizontal"');
 ?>
 
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Nama Bank</label>
+    <label class="col-sm-2 col-form-label">ID Level Akses</label>
     <div class="col-md-5">
-      <input type="text" name="nama_bank" class="form-control" placeholder="Nama bank" value="<?php echo set_value('nama_bank')?>" required>
+      <input type="text" name="level_id" class="form-control" placeholder="ID Level Akses" value="<?php echo set_value('level_id')?>" required>
     </div>
 </div>
 
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Nomor Rekening</label>
+    <label class="col-sm-2 col-form-label">Nama Level Akses</label>
     <div class="col-md-5">
-      <input type="number" name="nomor_rekening" class="form-control" placeholder="Nomor rekening" value="<?php echo set_value('nomor_rekening')?>" required>
+      <input type="text" name="nama" class="form-control" placeholder="Nama Level Akses" value="<?php echo set_value('nama')?>" required>
     </div>
 </div>
 
 <div class="form-group row">
-    <label class="col-sm-2 col-form-label">Nama Pemilik</label>
+    <label class="col-sm-2 col-form-label">Keterangan</label>
     <div class="col-md-5">
-      <input type="text" name="nama_pemilik" class="form-control" placeholder="Nama pemilik" value="<?php echo set_value('nama_pemilik')?>" required>
+      <input type="text" name="keterangan" class="form-control" placeholder="Keterangan Level Akses" value="<?php echo set_value('keterangan')?>" required>
     </div>
 </div>
 

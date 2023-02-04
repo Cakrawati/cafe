@@ -62,6 +62,17 @@ class User_model extends CI_Model {
 		$this->db->delete('users', $data);
 	}
 
+	// Get all access role from auth user
+	public function getAccessRoleAuth($id)
+	{
+		$this->db->select('users_level.*');
+		$this->db->from('users');
+		$this->db->join('users_level', 'users_level.level_id = users.akses_level');
+		$this->db->where('users.id_user', $id);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
 }
 
 /* End of file User_model.php */

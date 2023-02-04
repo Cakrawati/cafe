@@ -35,39 +35,43 @@
                 </a>
           </li>
 
-          <!-- Menu Produk -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-sitemap"></i>
-              <p>
-                PRODUK
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/produk') ?>" class="nav-link">
-                  <i class="fa fa-table nav-icon"></i>
-                  <p> Data Produk </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/produk/tambah') ?>" class="nav-link">
-                  <i class="fa fa-plus nav-icon"></i>
-                  <p> Tambah Produk </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/kategori') ?>" class="nav-link">
-                  <i class="fa fa-tags nav-icon"></i>
-                  <p> Kategori Produk </p>
-                </a>
-              </li>
-            </ul>
-          </li>
+           <!-- Menu transaksi -->
+          <?php
+            if($this->session->userdata('akses_level') == 1 || $this->session->userdata('akses_level') == 2 || $this->session->userdata('akses_level') == 3) {
+              ?>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-sitemap"></i>
+                    <p>
+                      TRANSAKSI
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/transaksi') ?>" class="nav-link">
+                        <i class="fa fa-table nav-icon"></i>
+                        <p> Data Transaksi </p>
+                      </a>
+                    </li>
+                    <?php if($this->session->userdata('akses_level') == 1) {
+                      ?>
+                        <li class="nav-item">
+                          <a href="<?php echo base_url('admin/meja') ?>" class="nav-link">
+                            <i class="fa fa-plus nav-icon"></i>
+                            <p> Data Meja </p>
+                          </a>
+                        </li>
+                      <?php
+                    }?>
+                  </ul>
+                </li>
+              <?php
+            }
+          ?>
 
           <!-- Menu Produk -->
-          <li class="nav-item has-treeview">
+          <!-- <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tags"></i>
               <p>
@@ -90,71 +94,138 @@
               </li>
             </ul>
           </li>
-
-           <!-- Menu Dashoard -->
-          <li class="nav-item">
+ -->
+           <!-- Menu Rekening -->
+          <!-- <li class="nav-item">
                 <a href="<?php echo base_url('admin/rekening') ?>" class="nav-link">
                   <i class="nav-icon fa fa-dollar-sign text-info"></i>
-                  <p>DATA REKENING</p>
+                  <p>DATA PEMBAYARAN</p>
                 </a>
-          </li>
+          </li -->
 
           <!-- Menu Pengguna -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-lock"></i>
-              <p>
-                PENGGUNA
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
-                  <i class="fa fa-table nav-icon"></i>
-                  <p> Data Pengguna </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/user/tambah') ?>" class="nav-link">
-                  <i class="fa fa-plus nav-icon"></i>
-                  <p> Tambah Pengguna </p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <?php
+            if($this->session->userdata('akses_level') == 1) {
+              ?>
+                <!-- Menu Produk -->
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-sitemap"></i>
+                    <p>
+                      PRODUK
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/produk') ?>" class="nav-link">
+                        <i class="fa fa-table nav-icon"></i>
+                        <p> Data Produk </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/produk/tambah') ?>" class="nav-link">
+                        <i class="fa fa-plus nav-icon"></i>
+                        <p> Tambah Produk </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/kategori') ?>" class="nav-link">
+                        <i class="fa fa-tags nav-icon"></i>
+                        <p> Kategori Produk </p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-          <!-- Menu konigurasi -->
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-wrench"></i>
-              <p>
-                KONFIGURASI
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi') ?>" class="nav-link">
-                  <i class="fa fa-home nav-icon"></i>
-                  <p> Konfigurasi Umum </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi/logo') ?>" class="nav-link">
-                  <i class="fa fa-image nav-icon"></i>
-                  <p> Konfigurasi Logo </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi/icon') ?>" class="nav-link">
-                  <i class="fa fa-home nav-icon"></i>
-                  <p> Konfigurasi Icon </p>
-                </a>
-              </li>
-            </ul>
-          </li>
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-lock"></i>
+                    <p>
+                      PENGGUNA
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
+                        <i class="fa fa-table nav-icon"></i>
+                        <p> Data Pengguna </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/user/tambah') ?>" class="nav-link">
+                        <i class="fa fa-plus nav-icon"></i>
+                        <p> Tambah Pengguna </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/userlevel') ?>" class="nav-link">
+                        <i class="fa fa-plus nav-icon"></i>
+                        <p> Data Akses Level Pengguna </p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
+                <!-- Menu Pegawai -->
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>
+                      PEGAWAI
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/pegawai') ?>" class="nav-link">
+                        <i class="fa fa-table nav-icon"></i>
+                        <p> Data Pegawai </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/pegawai/tambah') ?>" class="nav-link">
+                        <i class="fa fa-plus nav-icon"></i>
+                        <p> Tambah Pegawai </p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <!-- Menu konigurasi -->
+                <li class="nav-item has-treeview">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-wrench"></i>
+                    <p>
+                      KONFIGURASI
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/konfigurasi') ?>" class="nav-link">
+                        <i class="fa fa-home nav-icon"></i>
+                        <p> Konfigurasi Umum </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/konfigurasi/logo') ?>" class="nav-link">
+                        <i class="fa fa-image nav-icon"></i>
+                        <p> Konfigurasi Logo </p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="<?php echo base_url('admin/konfigurasi/icon') ?>" class="nav-link">
+                        <i class="fa fa-home nav-icon"></i>
+                        <p> Konfigurasi Icon </p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              <?php
+            }
+          ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -173,7 +244,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dasbor') ?>">Home</a></li>
               <li class="breadcrumb-item active"><?php echo $title ?></li>
             </ol>
           </div>

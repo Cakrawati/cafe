@@ -122,10 +122,11 @@ class Produk extends CI_Controller {
 		$produk 		= $this->produk_model->read($slug_produk);
 		$id_produk 		= $produk->id_produk;
 		$produk_related	= $this->produk_model->home();
-		//$gambar 	= $this->produk_model->gambar($id_produk);
+		$gambar 		= $this->produk_model->gambar($id_produk);
 
 		$data = array( 	'title' 			=> $produk->nama_produk,
 						'site'				=> $site,
+						'gambar'			=> $gambar,
 						'produk'			=> $produk,
 						'produk_related'	=> $produk_related,
 						'isi'				=> 'produk/detail'

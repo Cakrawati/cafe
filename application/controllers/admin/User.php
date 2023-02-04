@@ -8,6 +8,7 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('user_model');
+		$this->load->model('user_level_model');
 		//Proteksi halaman
 		$this->simple_login->cek_login();
 	}
@@ -16,6 +17,10 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$user = $this->user_model->listing();
+		foreach($user as $key => $value) {
+			$getRole = $this->user_model->getAccessRoleAuth($value->id_user);
+			$value->akses_level = $getRole->nama;
+		}
 
 		$data = array(	'title'		=> 'Data Pengguna',
 						'user'		=> $user,
@@ -45,14 +50,17 @@ class User extends CI_Controller {
 
 		$valid->set_rules('password','Password','required',
 			array(	'required'		=> '%s harus diisi'));
+		$valid->set_rules('akses_level', 'Akses Level', 'required', array( 'required' => '%s harus di isi'));
 		if($valid->run()===FALSE)
 		{
-		//End validasi
-
-		$data = array(	'title'		=> 'Tambah Pengguna',
-						'isi'		=> 'admin/user/tambah'
-					);
-		$this->load->view('admin/layout/wrapper', $data, FALSE);
+			//End validasi
+			$data = array(	'title'		=> 'Tambah Pengguna',
+							'akses_level' => $this->user_level_model->listing(),
+							'isi'		=> 'admin/user/tambah'
+						);
+			// var_dump($data);
+			// die();
+			$this->load->view('admin/layout/wrapper', $data, FALSE);
 		// Masuk database
 		}else{
 			$i = $this->input->post();
@@ -88,12 +96,14 @@ class User extends CI_Controller {
 
 		$valid->set_rules('password','Password','required',
 			array(	'required'		=> '%s harus diisi'));
+		$valid->set_rules('akses_level', 'Akses Level', 'required', array( 'required' => '%s harus di isi'));
 		if($valid->run()===FALSE)
 		{
 		//End validasi
 
 		$data = array(	'title'		=> 'Edit Pengguna',
-						'user'		=> $user, 
+						'user'		=> $user,
+						'akses_level' => $this->user_level_model->listing(), 
 						'isi'		=> 'admin/user/edit'
 					);
 		$this->load->view('admin/layout/wrapper', $data, FALSE);

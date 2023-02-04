@@ -17,7 +17,7 @@ class Rekening extends CI_Controller {
 	{
 		$rekening = $this->rekening_model->listing();
 
-		$data = array(	'title'		=> 'Data Rekening',
+		$data = array(	'title'		=> 'Data Pembayaran',
 						'rekening'	=> $rekening,
 						'isi'		=> 'admin/rekening/list'
 					);
@@ -44,7 +44,7 @@ class Rekening extends CI_Controller {
 		{
 		//End validasi
 
-		$data = array(	'title'		=> 'Tambah Rekening',
+		$data = array(	'title'		=> 'Tambah Pembayaran',
 						'isi'		=> 'admin/rekening/tambah'
 					);
 		$this->load->view('admin/layout/wrapper', $data, FALSE);
@@ -86,7 +86,7 @@ class Rekening extends CI_Controller {
 		{
 		//End validasi
 
-		$data = array(	'title'		=> 'Edit Rekening',
+		$data = array(	'title'		=> 'Edit Pembayaran',
 						'rekening'	=> $rekening, 
 						'isi'		=> 'admin/rekening/edit'
 					);

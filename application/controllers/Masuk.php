@@ -25,7 +25,7 @@ class Masuk extends CI_Controller {
 			$email  	= $this->input->post('email');
 			$password 	= $this->input->post('password');
 			// proses ke simple login
-			$this->simple_pelanggan->login($email,$password);
+			// $this->simple_pelanggan->login($email,$password);
 		}  
 		// End validasi
 
@@ -36,11 +36,11 @@ class Masuk extends CI_Controller {
 	}
 
 	// Logout
-	public function logout()
-	{
-		// ambil fungsi logout di simple_pelanggan yang sudah diset di autoload libraries
-		$this->simple_pelanggan->logout();
-	}
+	// public function logout()
+	// {
+	// 	// ambil fungsi logout di simple_pelanggan yang sudah diset di autoload libraries
+	// 	$this->simple_pelanggan->logout();
+	// }
 
 }
 

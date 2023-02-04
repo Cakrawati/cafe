@@ -6,6 +6,6 @@ include('slider.php');
 // load produk
 include('produk.php');
 // load berita
-include('berita.php');
+// include('berita.php');
 ?>
 

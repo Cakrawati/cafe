@@ -12,22 +12,14 @@ class Header_transaksi_model extends CI_Model {
 	// listing all header_transaksi
 	public function listing()
 	{
-		$this->db->select('*');
-		$this->db->from('header_transaksi');
-		$this->db->order_by('id_header_transaksi', 'desc');
-		$query = $this->db->get();
-		return $query->result();
-	}
-
-	// listing all header_transaksi
-	public function pelanggan($id_pelanggan)
-	{
 		$this->db->select('header_transaksi.*,
+							users.nama,
 							SUM(transaksi.jumlah) AS total_item');
 		$this->db->from('header_transaksi');
-		$this->db->where('header_transaksi.id_pelanggan', $id_pelanggan);
 		// JOIN
 		$this->db->join('transaksi', 'transaksi.kode_transaksi = header_transaksi.kode_transaksi', 'left');
+		$this->db->join('users', 'users.id_user = header_transaksi.id_user', 'left');
+		// $this->db->join('pelanggan', 'pelanggan.id_pelanggan = header_transaksi.id_pelanggan', 'left');
 		// END JOIN
 		$this->db->group_by('header_transaksi.id_header_transaksi');
 		$this->db->order_by('id_header_transaksi', 'desc');
@@ -35,12 +27,53 @@ class Header_transaksi_model extends CI_Model {
 		return $query->result();
 	}
 
-	// detail kode_transaksi
+	// listing all header_transaksi dari pelanggan
+	// public function pelanggan($id_pelanggan)
+	// {
+	// 	$this->db->select('header_transaksi.*,
+	// 						SUM(transaksi.jumlah) AS total_item');
+	// 	$this->db->from('header_transaksi');
+	//  $this->db->where('header_transaksi.id_pelanggan', $id_pelanggan);
+	// 	// JOIN
+	// 	$this->db->join('transaksi', 'transaksi.kode_transaksi = header_transaksi.kode_transaksi', 'left');
+	// 	// END JOIN
+	// 	$this->db->group_by('header_transaksi.id_header_transaksi');
+	// 	$this->db->order_by('id_header_transaksi', 'desc');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
+
+	// listing all header_transaksi dari meja
+	// public function meja()
+	// {
+	// 	$this->db->select('header_transaksi.*,
+	// 						meja.nama_meja,
+	// 						SUM(transaksi.jumlah) AS total_item');
+	// 	$this->db->from('header_transaksi');
+	// 	// $this->db->where('header_transaksi.id_meja', $id_meja);
+	// 	// JOIN
+	// 	$this->db->join('transaksi', 'transaksi.kode_transaksi = header_transaksi.kode_transaksi', 'left');
+	// 	$this->db->join('meja', 'meja.id_meja = header_transaksi.id_meja', 'left');
+	// 	//END JOIN
+	// 	$this->db->group_by('header_transaksi.id_header_transaksi');
+	// 	$this->db->order_by('id_header_transaksi', 'desc');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
+
+	// detail header_transaksi
 	public function kode_transaksi($kode_transaksi)
 	{
-		$this->db->select('*');
+		$this->db->select('header_transaksi.*,
+							SUM(transaksi.jumlah) AS total_item');
 		$this->db->from('header_transaksi');
-		$this->db->where('kode_transaksi', $kode_transaksi);
+		// JOIN
+		$this->db->join('transaksi', 'transaksi.kode_transaksi = header_transaksi.kode_transaksi', 'left');
+		// $this->db->join('pelanggan', 'pelanggan.id_pelanggan = header_transaksi.id_pelanggan', 'left');
+		// $this->db->join('rekening', 'rekening.id_rekening = header_transaksi.id_rekening', 'left');
+		// END JOIN
+		$this->db->group_by('header_transaksi.id_header_transaksi');
+		$this->db->where('transaksi.kode_transaksi', $kode_transaksi);
 		$this->db->order_by('id_header_transaksi', 'desc');
 		$query = $this->db->get();
 		return $query->row();
@@ -75,6 +108,40 @@ class Header_transaksi_model extends CI_Model {
 	{
 		$this->db->where('id_header_transaksi', $data['id_header_transaksi']);
 		$this->db->delete('header_transaksi', $data);
+	}
+
+	// Find data by kode transaksi
+	public function findByTransaction($kode_transaksi)
+	{
+		$this->db->select('*');
+		$this->db->from('header_transaksi');
+		$this->db->where('kode_transaksi', $kode_transaksi);
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function countIncomeByMonth()
+	{
+		$this->db->select_sum("jumlah_bayar");
+		$this->db->from('header_transaksi');
+		$this->db->where('status_bayar', 1);
+		$this->db->where('month(tanggal_bayar)', date('m'));
+		$this->db->where('year(tanggal_bayar)', date('Y'));
+		// month(tanggal_bayar) dia ngubah dari yang datetime 2022-09-20 H:i:s
+		// month(tanggal_bayar) => 09
+		// 08
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	public function totalIncome()
+	{
+		$this->db->select_sum("jumlah_bayar");
+		$this->db->from('header_transaksi');
+		$this->db->where('status_bayar', 1);
+		$this->db->where('year(tanggal_bayar)', date('Y'));
+		$query = $this->db->get();
+		return $query->row();
 	}
 
 }
