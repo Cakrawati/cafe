@@ -19,6 +19,17 @@ class User_model extends CI_Model {
 		return $query->result();
 	}
 
+	// public function listing()
+	// {
+	// 	$this->db->select('*');
+	// 	$this->db->from('users');
+	// 	$this->db->where('akses_level !=1');
+	// 	// $this->db->where('akses_level=3');
+	// 	$this->db->order_by('id_user', 'desc');
+	// 	$query = $this->db->get();
+	// 	return $query->result();
+	// }
+
 	// detail all user
 	public function detail($id_user)
 	{

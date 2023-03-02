@@ -55,12 +55,12 @@ echo form_open_multipart(base_url('admin/produk/tambah'),' class="form-horizonta
     </div>
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ukuran Produk</label>
     <div class="col-md-5">
       <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Produk" value="<?php echo set_value('ukuran')?>" required>
     </div>
-</div>
+</div> -->
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Keterangan Produk</label>

@@ -24,7 +24,7 @@ if ($this->session->flashdata('error')) {
           <div class="card-body box-profile">
             <div class="text-center">
               <img class="profile-user-img img-fluid img-circle"
-                   src="<?php echo base_url() ?>assets/admin/dist/img/user2-160x160.jpg"
+                   src="<?php echo base_url() ?>assets/admin/dist/img/user2.png"
                    alt="User profile picture">
             </div>
 
@@ -34,10 +34,10 @@ if ($this->session->flashdata('error')) {
                     case '1':
                         $aksesLevel = "Admin";
                         break;
-                    case '2':
+                    case '3':
                         $aksesLevel = "Barista";
                         break;
-                    case '3':
+                    case '2':
                         $aksesLevel = "Kasir";
                         break;
                     default:
@@ -45,9 +45,10 @@ if ($this->session->flashdata('error')) {
                         break;
                 }
             ?>
-            <h3 class="profile-username text-center"><?php echo $this->session->userdata('nama'); ?></h3>
+            <!-- <h3 class="profile-username text-center"><?php echo $this->session->userdata('nama'); ?></h3> -->
+            <h3 class="profile-username text-center"><?php echo $user->nama; ?></h3>
 
-            <p class="text-muted text-center"><?php echo $this->session->userdata('nama'); ?> - <?php echo $aksesLevel; ?></p>
+            <p class="text-muted text-center"><?php echo $user->nama; ?> - <?php echo $aksesLevel; ?></p>
             <p class="text-muted text-center"><?php echo $pegawai->tanggal_masuk; ?></p>
 
           </div>
@@ -104,7 +105,7 @@ if ($this->session->flashdata('error')) {
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                      <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                   </div>
                 <?php echo form_close(); ?>
@@ -139,7 +140,7 @@ if ($this->session->flashdata('error')) {
                   </div>
                   <div class="form-group row">
                     <div class="offset-sm-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
+                      <button type="submit" class="btn btn-success">Simpan</button>
                     </div>
                   </div>
                 <?php echo form_close(); ?>

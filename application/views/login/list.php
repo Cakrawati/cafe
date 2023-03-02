@@ -18,14 +18,18 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url(<?php echo base_url() ?>assets/template/images/cafe.jpeg); background-size: contain; background-size: cover;">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url() ?>"><b><?php echo $title ?></b></a>
+  <!-- <div class="card" style="background-color: black;"> -->
+    <a href="<?php echo base_url() ?>" style="color: white;"><b><?php echo $title ?> </b></a>
+    <a href="" style="color: white;" class="text text-xl"><b>Dangau Kopi</b></a>
+  <!-- </div> -->
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+      <p></p>
       <p class="login-box-msg">Masukkan Username dan Password</p>
 
 <?php
@@ -68,12 +72,12 @@ echo form_open(base_url('login'));
         </div>
         <div class="row">
           <div class="col-8">
-            <div class="icheck-primary">
+            <!-- <div class="icheck-primary">
               <input type="checkbox" id="remember">
               <label for="remember">
                 Remember Me
               </label>
-            </div>
+            </div> -->
           </div>
           <!-- /.col -->
           <div class="col-4">
@@ -84,7 +88,7 @@ echo form_open(base_url('login'));
       </form>
 
 <?php echo form_close(); ?>
-
+      <p></p>
     </div>
     <!-- /.login-card-body -->
   </div>

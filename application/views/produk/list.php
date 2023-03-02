@@ -50,7 +50,7 @@
 					?>
 					<!-- Block2 -->
 					<div class="block2">
-						<div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="height: 270px !important; width: 270px !important;">
+						<div class="block2-img wrap-pic-w of-hidden pos-relative" style="height: 270px !important; width: 270px !important;">
 							<img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk->gambar) ?>" alt="<?php echo $produk->nama_produk ?>">
 
 							<div class="block2-overlay trans-0-4">

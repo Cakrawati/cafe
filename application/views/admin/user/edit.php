@@ -27,12 +27,12 @@ echo form_open(base_url('admin/user/edit/' .$user->id_user),' class="form-horizo
     </div>
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label">Password</label>
     <div class="col-md-5">
       <input type="password" name="password" class="form-control" placeholder="Password" value="<?php echo $user->password ?>" required>
     </div>
-</div>
+</div> -->
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Level Hak Akses</label>

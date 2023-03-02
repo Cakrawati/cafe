@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="<?php echo base_url('assets/template/images/about.jpg') ?>" alt="IMG-ABOUT">
+						<img src="<?php echo base_url('assets/template/images/dangau.png') ?>" alt="IMG-ABOUT">
 					</div>
 				</div>
 
@@ -21,7 +21,11 @@
 					</h3>
 
 					<p class="p-b-28">
-						Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus. Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
+						Bicara mengenai penyeduhan kopi.
+						Menikmati setiap seduhan bagi kami adalah rasa syukur kami terhadap kopi. Karena disetiap seduhan memiliki banyak cerita sebelum menjadi seduhan yang enak. 
+						Proses yang panjang dari petani menanamkan benih hingga panen, setelah itu melalui prosessor kopi dari wash hingga natural, kemudian roasting kopi dari light hingga dark, dan  terakhir penyeduh membuat racikan kopi yang sesuai.
+						Persentasinya adalah petani 60%, roasting 30%, penyeduh 10%.
+						Tugas kami sebagai warung kopi adalah menyeduh kopi dan menceritakan semua proses panjang tersebut kepada pelanggan kami.
 					</p>
 
 					<div class="bo13 p-l-29 m-l-9 p-b-10">

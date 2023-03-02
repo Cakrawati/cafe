@@ -15,19 +15,33 @@ if ($this->session->flashdata('error')) {
 </div>
 <p class="pull-right">
 	<div class="btn-group pull-right">
+		<a href="<?php echo base_url('admin/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a> &nbsp; &nbsp;
 		<?php
+		if($this->session->userdata('akses_level') == 1 || $this->session->userdata('akses_level') == 2) {
 			if($header_transaksi->status_bayar == true){
 			?>
-				<a href="<?php echo base_url('admin/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a> &nbsp; &nbsp;
 				<a href="<?php echo base_url('admin/transaksi/cetak/'.$header_transaksi->kode_transaksi) ?>" target="_blank" title="Cetak" class="btn btn-success btn-sm"><i class="fa fa-print"></i> Cetak </a> &nbsp; &nbsp;
+				<?php
+			}
+			if($this->session->userdata('akses_level') == 1 && $header_transaksi->status_bayar == true){
+			?>
 				<a href="<?php echo base_url('admin/transaksi/status/'.$header_transaksi->kode_transaksi) ?>" class="btn btn-warning btn-sm"><i class="fa fa-check"></i> Update Status </a>
-			<?php
+				<?php
 			}
 			if ($header_transaksi->status_bayar == false) {
 			?>
-				<a href="<?php echo base_url('admin/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a> &nbsp; &nbsp;
 				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bayarModal">Bayar</button>
-			<?php } ?>
+			<?php 
+			} 
+			}
+		?>
+		<?php 
+			if ($this->session->userdata('akses_level') == 3) {
+				?>
+					<a href="<?php echo base_url('admin/transaksi') ?>" title="Kembali" class="btn btn-info btn-sm"><i class="fa fa-backward"></i> Kembali</a>
+				<?php 
+			} 
+		?>
 		
 	</div>
 </p>
@@ -99,6 +113,30 @@ if ($this->session->flashdata('error')) {
 	<tr>
 		<td>Jumlah Bayar</td>
 		<td>: Rp. <?php echo number_format($header_transaksi->jumlah_bayar,'0',',','.') ?></td>
+	</tr>
+	<?php
+			}
+			if ($header_transaksi->status_bayar == false) {
+	?>
+	<?php } ?>
+	<?php 
+			if($header_transaksi->status_bayar == true){
+	?>
+	<tr>
+		<td>Jumlah Diskon</td>
+		<td>: Rp. <?php echo number_format($header_transaksi->diskon,'0',',','.') ?></td>
+	</tr>
+	<?php
+			}
+			if ($header_transaksi->status_bayar == false) {
+	?>
+	<?php } ?>
+	<?php 
+			if($header_transaksi->status_bayar == true){
+	?>
+	<tr>
+		<td>Jumlah Kembali</td>
+		<td>: Rp. <?php echo number_format($header_transaksi->kembali,'0',',','.') ?></td>
 	</tr>
 	<?php
 			}

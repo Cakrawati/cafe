@@ -31,7 +31,7 @@ echo form_open_multipart(base_url('admin/konfigurasi/icon'),' class="form-horizo
 </div>
 
 <div class="form-group row">
-    <label class="col-sm-3 col-form-label">Upload Icon Baru</label>
+    <label class="col-sm-3 col-form-label">Upload Ikon Baru</label>
     <div class="col-md-5">
       <input type="file" name="icon" class="form-control" placeholder="Upload Icon Baru" value="<?php echo $konfigurasi->icon ?>" required>
     Icon Lama: <br>

@@ -58,6 +58,9 @@ class Belanja extends CI_Controller {
 	// Halaman Belanja sukses
 	public function sukses()
 	{
+		if (empty($this->session->flashdata('id_keranjang'))) {
+			redirect(base_url('/'), 'refresh');
+		}
 		// id_kerangjang == kode transaksi
 		$header_transaksi 	= $this->header_transaksi_model->kode_transaksi($this->session->flashdata('id_keranjang'));
 		$transaksi   		= $this->transaksi_model->kode_transaksi($this->session->flashdata('id_keranjang'));

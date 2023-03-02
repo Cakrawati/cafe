@@ -29,6 +29,26 @@ class Produk_model extends CI_Model {
 		return $query->result();
 	}
 
+		public function listing_softdelete()
+	{
+		$this->db->select('produk.*,
+						users.nama,
+						kategori.nama_kategori,
+						kategori.slug_kategori,
+						COUNT(gambar.id_gambar) AS total_gambar');
+		$this->db->from('produk');
+		//JOIN
+		$this->db->join('users', 'users.id_user = produk.id_user', 'left');
+		$this->db->join('kategori', 'kategori.id_kategori = produk.id_kategori', 'left');
+		$this->db->join('gambar', 'gambar.id_produk = produk.id_produk', 'left');
+		//END JOIN
+		$this->db->group_by('produk.id_produk');
+		$this->db->order_by('id_produk', 'desc');
+		$this->db->where('deleted', '0');
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	// home
 	public function home()
 	{
@@ -210,7 +230,11 @@ class Produk_model extends CI_Model {
 		$this->db->where('id_produk', $data['id_produk']);
 		$this->db->update('produk', $data);
 	}
-
+		public function edit_softdelete($data,$data1)
+	{
+		$this->db->where('id_produk', $data['id_produk']);
+		$this->db->update('produk', $data1);
+	}
 	// Delete
 	public function delete($data)
 	{
@@ -229,6 +253,27 @@ class Produk_model extends CI_Model {
 	{
 		$this->db->where('id_produk', $id_produk);
 		$this->db->delete('gambar');
+	}
+
+	public function updateStokProduk($getTransaction, $action)
+	{
+		try{
+			foreach ($getTransaction as $key => $value) {
+				if ($action == "plus") {
+					$count = $value->stok_produk + $value->jumlah;
+				} else {
+					$count = $value->stok_produk - $value->jumlah;
+				}
+				$data = array(
+					"id_produk" => $value->id_produk,
+					"stok_produk" => $count,
+				);
+				$this->edit($data);
+			}
+			return true;
+		} catch(Exception $e) {
+			return false;
+		}
 	}
 
 

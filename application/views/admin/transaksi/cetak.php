@@ -115,6 +115,14 @@
 				<td>Jumlah Bayar</td>
 				<td>: Rp. <?php echo number_format($header_transaksi->jumlah_bayar,'0',',','.') ?></td>
 			</tr>
+			<tr>
+				<td>Jumlah Diskon</td>
+				<td>: Rp. <?php echo number_format($header_transaksi->diskon,'0',',','.') ?></td>
+			</tr>
+			<tr>
+				<td>Jumlah Kembali</td>
+				<td>: Rp. <?php echo number_format($header_transaksi->kembali,'0',',','.') ?></td>
+			</tr>
 		</tbody>
 		</table>
 		<br>

@@ -123,12 +123,12 @@
                         <p> Data Produk </p>
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="<?php echo base_url('admin/produk/tambah') ?>" class="nav-link">
                         <i class="fa fa-plus nav-icon"></i>
                         <p> Tambah Produk </p>
                       </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a href="<?php echo base_url('admin/kategori') ?>" class="nav-link">
                         <i class="fa fa-tags nav-icon"></i>
@@ -153,12 +153,12 @@
                         <p> Data Pengguna </p>
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="<?php echo base_url('admin/user/tambah') ?>" class="nav-link">
                         <i class="fa fa-plus nav-icon"></i>
                         <p> Tambah Pengguna </p>
                       </a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a href="<?php echo base_url('admin/userlevel') ?>" class="nav-link">
                         <i class="fa fa-plus nav-icon"></i>
@@ -184,12 +184,12 @@
                         <p> Data Pegawai </p>
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a href="<?php echo base_url('admin/pegawai/tambah') ?>" class="nav-link">
                         <i class="fa fa-plus nav-icon"></i>
                         <p> Tambah Pegawai </p>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </li>
 
@@ -218,7 +218,7 @@
                     <li class="nav-item">
                       <a href="<?php echo base_url('admin/konfigurasi/icon') ?>" class="nav-link">
                         <i class="fa fa-home nav-icon"></i>
-                        <p> Konfigurasi Icon </p>
+                        <p> Konfigurasi Ikon </p>
                       </a>
                     </li>
                   </ul>

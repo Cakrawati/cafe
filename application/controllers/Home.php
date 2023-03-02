@@ -8,7 +8,7 @@ class Home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('produk_model');
-		$this->load->model('kategori_model');
+		// $this->load->model('kategori_model');
 		$this->load->model('konfigurasi_model');
 	}
 

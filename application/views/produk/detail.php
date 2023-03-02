@@ -135,14 +135,14 @@
 
 			    <!-- Block2 -->
 			    <div class="block2">
-			        <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew" style="height: 270px !important; width: 270px !important;">
+			        <div class="block2-img wrap-pic-w of-hidden pos-relative" style="height: 270px !important; width: 270px !important;">
 			            <img src="<?php echo base_url('assets/upload/image/thumbs/'.$produk_related->gambar) ?>" alt="<?php echo $produk_related->nama_produk ?>">
 
 			            <div class="block2-overlay trans-0-4">
-			                <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+			                <!-- <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
 			                    <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
 			                    <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-			                </a>
+			                </a> -->
 
 			                <div class="block2-btn-addcart w-size1 trans-0-4">
 			                    <!-- Button Belanja -->

@@ -9,15 +9,32 @@
       <!-- User Account -->
        <li class="dropdown user user-menu">
         <a href="#" class="nav-link" data-toggle="dropdown">
-          <img src="<?php echo base_url() ?>assets/admin/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+          <img src="<?php echo base_url() ?>assets/admin/dist/img/user2.png" class="user-image" alt="User Image">
           <span class="hidden-xs"><?php echo $this->session->userdata('nama'); ?></span>
         </a>
         <ul class="dropdown-menu">
           <!-- User image -->
+          <?php
+                $aksesLevel = '';
+                switch ($this->session->userdata('akses_level')) {
+                    case '1':
+                        $aksesLevel = "Admin";
+                        break;
+                    case '3':
+                        $aksesLevel = "Barista";
+                        break;
+                    case '2':
+                        $aksesLevel = "Kasir";
+                        break;
+                    default:
+                        # code...
+                        break;
+                }
+            ?>
           <li class="user-header">
-            <img src="<?php echo base_url() ?>assets/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            <img src="<?php echo base_url() ?>assets/admin/dist/img/user2.png" class="img-circle" alt="User Image">
             <p>
-              <?php echo $this->session->userdata('nama'); ?> - <?php echo $this->session->userdata('akses_level'); ?> 
+              <?php echo $this->session->userdata('nama'); ?> - <?php echo $aksesLevel; ?>
               <small><?php echo date('d M Y') ?></small>
             </p>
           </li>

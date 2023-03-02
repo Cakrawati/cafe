@@ -165,7 +165,7 @@ class Konfigurasi extends CI_Controller {
 				
 		//End validasi
 
-		$data = array(	'title'			=> 'Konfigurasi Icon Website',
+		$data = array(	'title'			=> 'Konfigurasi Ikon Website',
 						'konfigurasi'	=> $konfigurasi,
 						'error'			=> $this->upload->display_errors(),
 						'isi'			=> 'admin/konfigurasi/icon'
@@ -215,7 +215,7 @@ class Konfigurasi extends CI_Controller {
 			redirect(base_url('admin/konfigurasi/icon'),'refresh');
 		}}
 		// End masuk database
-		$data = array(	'title'			=> 'Konfigurasi Icon Website',
+		$data = array(	'title'			=> 'Konfigurasi Ikon Website',
 						'konfigurasi'	=> $konfigurasi,
 						'isi'			=> 'admin/konfigurasi/icon'
 					);

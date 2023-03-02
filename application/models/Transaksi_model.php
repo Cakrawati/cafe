@@ -24,7 +24,8 @@ class Transaksi_model extends CI_Model {
 	{
 		$this->db->select('transaksi.*,
 							produk.nama_produk,
-							produk.kode_produk');
+							produk.kode_produk,
+							produk.stok_produk');
 		$this->db->from('transaksi');
 		// JOIN dengan produk
 		$this->db->join('produk', 'produk.id_produk = transaksi.id_produk', 'left');

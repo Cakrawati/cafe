@@ -16,7 +16,7 @@ class Produk extends CI_Controller {
 	//Data produk
 	public function index()
 	{
-		$produk = $this->produk_model->listing();
+		$produk = $this->produk_model->listing_softdelete();
 
 		$data = array(	'title'		=> 'Data Produk',
 						'produk'	=> $produk,
@@ -168,12 +168,13 @@ class Produk extends CI_Controller {
 							'nama_produk'		=> $i['nama_produk'],
 							'slug_produk'		=> $slug_produk,
 							'keterangan'		=> $i['keterangan'],
-							'keywords'			=> $i['keywords'],
+							//'keywords'			=> $i['keywords'],
 							'harga'				=> $i['harga'],
 							'stok_produk'		=> $i['stok_produk'],
+							'deleted'			=> '0',
 							//Disimpan nama file gambar
 							'gambar'			=> $upload_gambar['upload_data']['file_name'],
-							'ukuran'			=> $i['ukuran'],
+							//'ukuran'			=> $i['ukuran'],
 							'status_produk'		=> $i['status_produk'],
 							'tanggal_post'		=> date('Y-m-d H:i:s') //case sesitive hours minutes second
 							);
@@ -260,12 +261,12 @@ class Produk extends CI_Controller {
 							'nama_produk'		=> $i['nama_produk'],
 							'slug_produk'		=> $slug_produk,
 							'keterangan'		=> $i['keterangan'],
-							'keywords'			=> $i['keywords'],
+							// 'keywords'			=> $i['keywords'],
 							'harga'				=> $i['harga'],
 							'stok_produk'		=> $i['stok_produk'],
 							//Disimpan nama file gambar
 							'gambar'			=> $upload_gambar['upload_data']['file_name'],
-							'ukuran'			=> $i['ukuran'],
+							//'ukuran'			=> $i['ukuran'],
 							'status_produk'		=> $i['status_produk']
 							);
 			$this->produk_model->edit($data);
@@ -284,12 +285,12 @@ class Produk extends CI_Controller {
 							'nama_produk'		=> $i['nama_produk'],
 							'slug_produk'		=> $slug_produk,
 							'keterangan'		=> $i['keterangan'],
-							'keywords'			=> $i['keywords'],
+							// 'keywords'			=> $i['keywords'],
 							'harga'				=> $i['harga'],
 							'stok_produk'		=> $i['stok_produk'],
 							// Disimpan nama file gambar (Gambar tidak diganti)
 							// 'gambar'			=> $upload_gambar['upload_data']['file_name'],
-							'ukuran'			=> $i['ukuran'],
+							// 'ukuran'			=> $i['ukuran'],
 							'status_produk'		=> $i['status_produk']
 							);
 			$this->produk_model->edit($data);
@@ -316,6 +317,9 @@ class Produk extends CI_Controller {
 		$data = array('id_produk' => $id_produk);
 		$this->produk_model->delete($data);
 		$this->produk_model->deletegambarproduk($id_produk);
+		// $data1 = array(	'deleted'		=> '1'//apus
+		// 			);
+		// $this->produk_model->edit_softdelete($data, $data1);//apus
 		$this->session->set_flashdata('sukses', 'Data telah dihapus');
 		redirect(base_url('admin/produk'),'refresh');
 	}

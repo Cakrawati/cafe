@@ -6,7 +6,7 @@ $nav_produk_mobile  = $this->konfigurasi_model->nav_produk();
 
         <div class="wrap_header">
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a href="<?php echo base_url() ?>" class="logo">
                 <img src="<?php echo base_url('assets/upload/image/thumbs/'.$site->logo) ?>" alt="<?php echo $site->namaweb ?> | <?php echo $site->tagline ?>">
             </a>
 

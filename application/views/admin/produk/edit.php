@@ -55,12 +55,12 @@ echo form_open_multipart(base_url('admin/produk/edit/' .$produk->id_produk),' cl
     </div>
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label">Ukuran Produk</label>
     <div class="col-md-5">
       <input type="text" name="ukuran" class="form-control" placeholder="Ukuran Produk" value="<?php echo $produk->ukuran ?>" required>
     </div>
-</div>
+</div> -->
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Keterangan Produk</label>
@@ -69,12 +69,12 @@ echo form_open_multipart(base_url('admin/produk/edit/' .$produk->id_produk),' cl
     </div>
 </div>
 
-<div class="form-group row">
+<!-- <div class="form-group row">
     <label class="col-sm-2 col-form-label">Keyword (untuk SEO Google)</label>
     <div class="col-md-10">
       <textarea name="keywords" class="form-control" placeholder="Keyword (untuk SEO Google)"><?php echo $produk->keywords ?></textarea>
     </div>
-</div>
+</div> -->
 
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">Upload Gambar Produk</label>
